@@ -21,8 +21,12 @@ export type CampaignRequest = {
 };
 
 const DEFAULT_MIME = "audio/mpeg";
-const DEFAULT_WEBHOOK_URL =
-  "https://kavana.app.n8n.cloud/webhook-test/fb5ff65e-ddde-42a2-ad2b-6e57ff907d8a";
+/**
+ * Requests go through the same-origin proxy at /api/campaign, which forwards to
+ * the n8n webhook (n8n sends no CORS headers, so a direct browser call fails).
+ * Set VITE_N8N_WEBHOOK_URL to call a webhook directly from the browser instead.
+ */
+const DEFAULT_WEBHOOK_URL = "/api/campaign";
 
 export function getWebhookUrl(): string {
   const fromEnv = import.meta.env["VITE_N8N_WEBHOOK_URL"] as string | undefined;
