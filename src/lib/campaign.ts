@@ -153,7 +153,10 @@ export function extractFromJson(payload: unknown): CampaignResult {
     seen.add(a.src);
     return true;
   });
-  return { audios, imageUrl: acc.imageUrl, message: acc.message, raw: payload };
+  const result: CampaignResult = { audios, raw: payload };
+  if (acc.imageUrl !== undefined) result.imageUrl = acc.imageUrl;
+  if (acc.message !== undefined) result.message = acc.message;
+  return result;
 }
 
 export async function generateCampaign(
@@ -166,7 +169,7 @@ export async function generateCampaign(
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(request),
-      signal,
+      ...(signal ? { signal } : {}),
     });
   } catch {
     throw new CampaignError(
@@ -195,7 +198,7 @@ export async function generateCampaign(
   if (contentType.startsWith("audio/") || contentType.includes("octet-stream")) {
     const blob = await response.blob();
     if (!blob.size) return { audios: [] };
-    const mimeType = contentType.startsWith("audio/") ? contentType.split(";")[0] : DEFAULT_MIME;
+    const mimeType = (contentType.startsWith("audio/") ? contentType.split(";")[0] : DEFAULT_MIME) || DEFAULT_MIME;
     const typed = blob.type ? blob : new Blob([blob], { type: mimeType });
     return {
       audios: [{ src: URL.createObjectURL(typed), mimeType, isObjectUrl: true }],
