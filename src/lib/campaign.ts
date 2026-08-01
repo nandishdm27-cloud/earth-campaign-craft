@@ -22,7 +22,7 @@ export type CampaignRequest = {
 
 const DEFAULT_MIME = "audio/mpeg";
 const DEFAULT_WEBHOOK_URL =
-  "https://n8n.local.test/webhook/climate-action-local";
+  "https://kavana.app.n8n.cloud/webhook-test/fb5ff65e-ddde-42a2-ad2b-6e57ff907d8a";
 
 export function getWebhookUrl(): string {
   const fromEnv = import.meta.env["VITE_N8N_WEBHOOK_URL"] as string | undefined;
