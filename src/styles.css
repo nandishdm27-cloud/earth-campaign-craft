@@ -4,6 +4,16 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --color-leaf: var(--leaf);
+  --color-leaf-foreground: var(--leaf-foreground);
+  --color-ember: var(--ember);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+}
+
 /*
  * Design system definition.
  *
@@ -63,25 +73,30 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --background: oklch(0.19 0.035 160);
+  --foreground: oklch(0.96 0.02 140);
+  --surface: oklch(0.23 0.038 160);
+  --surface-raised: oklch(0.27 0.042 162);
+  --card: oklch(0.24 0.04 161);
+  --card-foreground: oklch(0.96 0.02 140);
+  --popover: oklch(0.23 0.04 161);
+  --popover-foreground: oklch(0.96 0.02 140);
+  --primary: oklch(0.78 0.17 150);
+  --primary-foreground: oklch(0.19 0.05 158);
+  --leaf: oklch(0.66 0.14 158);
+  --leaf-foreground: oklch(0.16 0.04 158);
+  --ember: oklch(0.8 0.15 85);
+  --secondary: oklch(0.3 0.045 162);
+  --secondary-foreground: oklch(0.95 0.02 140);
+  --muted: oklch(0.28 0.035 162);
+  --muted-foreground: oklch(0.75 0.03 150);
+  --accent: oklch(0.33 0.06 165);
+  --accent-foreground: oklch(0.96 0.02 140);
+  --destructive: oklch(0.6 0.2 25);
+  --destructive-foreground: oklch(0.98 0.01 90);
+  --border: oklch(0.36 0.045 163);
+  --input: oklch(0.36 0.045 163);
+  --ring: oklch(0.78 0.17 150);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -138,7 +153,50 @@
   }
 
   body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    background-image:
+      radial-gradient(60rem 40rem at 12% -10%, oklch(0.4 0.11 158 / 0.5), transparent 65%),
+      radial-gradient(50rem 35rem at 95% 0%, oklch(0.42 0.09 195 / 0.35), transparent 60%),
+      radial-gradient(45rem 40rem at 50% 110%, oklch(0.35 0.08 130 / 0.4), transparent 65%);
+    background-attachment: fixed;
   }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+@utility glass-panel {
+  background: linear-gradient(
+    150deg,
+    color-mix(in oklab, var(--surface-raised) 92%, transparent),
+    color-mix(in oklab, var(--surface) 88%, transparent)
+  );
+  border: 1px solid color-mix(in oklab, var(--primary) 16%, var(--border));
+  box-shadow:
+    0 24px 60px -30px oklch(0.1 0.05 160 / 0.9),
+    inset 0 1px 0 color-mix(in oklab, var(--primary) 12%, transparent);
+  backdrop-filter: blur(14px);
+}
+
+@utility text-gradient-leaf {
+  background: linear-gradient(100deg, var(--primary), oklch(0.85 0.13 105));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility glow-ring {
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--primary) 45%, transparent),
+    0 0 40px -12px color-mix(in oklab, var(--primary) 60%, transparent);
 }
