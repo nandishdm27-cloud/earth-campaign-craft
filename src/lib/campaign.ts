@@ -21,8 +21,12 @@ export type CampaignRequest = {
 };
 
 const DEFAULT_MIME = "audio/mpeg";
-const DEFAULT_WEBHOOK_URL =
-  "https://n8n.local.test/webhook/climate-action-local";
+/**
+ * Requests go through the same-origin proxy at /api/campaign, which forwards to
+ * the n8n webhook (n8n sends no CORS headers, so a direct browser call fails).
+ * Set VITE_N8N_WEBHOOK_URL to call a webhook directly from the browser instead.
+ */
+const DEFAULT_WEBHOOK_URL = "/api/campaign";
 
 export function getWebhookUrl(): string {
   const fromEnv = import.meta.env["VITE_N8N_WEBHOOK_URL"] as string | undefined;
