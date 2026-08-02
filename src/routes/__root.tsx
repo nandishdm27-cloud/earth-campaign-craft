@@ -77,14 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "ClimateAction Local — Localized Climate Campaigns for India" },
+      { name: "description", content: "Generate voice-and-poster climate campaigns tailored to any Indian state, in Hindi or English, with a male or female narrator." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "ClimateAction Local — Localized Climate Campaigns for India" },
+      { property: "og:description", content: "Generate voice-and-poster climate campaigns tailored to any Indian state, in Hindi or English, with a male or female narrator." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "ClimateAction Local — Localized Climate Campaigns for India" },
+      { name: "twitter:description", content: "Generate voice-and-poster climate campaigns tailored to any Indian state, in Hindi or English, with a male or female narrator." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e206a692-0394-4731-8b3f-c253289d952c/id-preview-3af57a2a--a715b9b8-ed13-4451-80a1-69e1967f291f.lovable.app-1785605270179.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e206a692-0394-4731-8b3f-c253289d952c/id-preview-3af57a2a--a715b9b8-ed13-4451-80a1-69e1967f291f.lovable.app-1785605270179.png" },
     ],
     links: [
       {
