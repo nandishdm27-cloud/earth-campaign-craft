@@ -20,11 +20,11 @@ export const Route = createFileRoute("/")({
         content:
           "Generate voice-and-poster climate campaigns tailored to any Indian state, in Hindi or English, with a male or female narrator.",
       },
-      { property: "og:title", content: "ClimateAction Local — Localized Climate Campaigns for India" },
+      { property: "og:title", content: "ClimateAction Local" },
       {
         property: "og:description",
         content:
-          "Generate voice-and-poster climate campaigns tailored to any Indian state, in Hindi or English, with a male or female narrator.",
+          "State-specific climate campaigns with narrated audio and campaign posters, in Hindi or English.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

@@ -114,7 +114,8 @@ export function AudioCard({ item, index, label, activeId, onPlay }: Props) {
         ref={audioRef}
         src={item.src}
         preload="metadata"
-        className="hidden"
+        controls
+        className="mt-4 w-full [color-scheme:dark]"
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
         onEnded={() => setPlaying(false)}
