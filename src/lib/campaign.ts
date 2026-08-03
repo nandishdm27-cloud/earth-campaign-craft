@@ -21,12 +21,10 @@ export type CampaignRequest = {
 };
 
 const DEFAULT_MIME = "audio/mpeg";
-const DEFAULT_WEBHOOK_URL =
-  "https://n8n.local.test/webhook/climate-action-local";
 
+/** Requests go through our own server proxy, which forwards to the n8n webhook. */
 export function getWebhookUrl(): string {
-  const fromEnv = import.meta.env["VITE_N8N_WEBHOOK_URL"] as string | undefined;
-  return fromEnv && fromEnv.trim() ? fromEnv.trim() : DEFAULT_WEBHOOK_URL;
+  return "/api/campaign";
 }
 
 export class CampaignError extends Error {
