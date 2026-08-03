@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 const N8N_WEBHOOK_URL =
-  "https://kavana.app.n8n.cloud/webhook-test/fb5ff65e-ddde-42a2-ad2b-6e57ff907d8a";
+  "https://kavana.app.n8n.cloud/webhook/625b4f98-779e-47a3-8340-b4295ac91e98";
 
 export const Route = createFileRoute("/api/campaign")({
   server: {
