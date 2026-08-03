@@ -22,7 +22,7 @@ export type CampaignRequest = {
 
 const DEFAULT_MIME = "audio/mpeg";
 const DEFAULT_WEBHOOK_URL =
-  "https://kavana.app.n8n.cloud/webhook-test/625b4f98-779e-47a3-8340-b4295ac91e98";
+  "https://kavana.app.n8n.cloud/webhook/625b4f98-779e-47a3-8340-b4295ac91e98";
 
 export function getWebhookUrl(): string {
   const fromEnv = import.meta.env["VITE_N8N_WEBHOOK_URL"] as string | undefined;
